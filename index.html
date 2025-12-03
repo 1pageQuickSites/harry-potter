@@ -15,17 +15,22 @@ body {
   overflow-x: hidden;
 }
 
-h1 {
-  margin-top: 30px;
-  font-size: 2rem;
+/* ANIMATED SORTING HAT EMOJI */
+#hat {
+  font-size: 140px;
+  animation: float 2.5s ease-in-out infinite, glow 1.5s alternate infinite;
+  margin-top: 20px;
 }
 
-img {
-  width: 250px;
-  margin: 20px auto;
-  display: block;
-  border-radius: 20px;
-  box-shadow: 0 0 25px gold;
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px gold; }
+  to { text-shadow: 0 0 30px gold; }
 }
 
 .houses {
@@ -41,16 +46,22 @@ img {
   border-radius: 15px;
   font-weight: bold;
   box-shadow: 0 0 15px #000;
+  width: 240px;
 }
 
 .gryff { background:#7f0909; }
-.huff { background:#bfa000; }
+.huff { background:#bfa000; color:black; }
 .raven { background:#0e1a40; }
 .slyth { background:#1a472a; }
 
+.house button {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
 button {
-  padding: 15px 30px;
-  font-size: 1.1rem;
+  padding: 12px 25px;
+  font-size: 1rem;
   font-weight: bold;
   border: none;
   border-radius: 10px;
@@ -60,48 +71,227 @@ button {
   margin: 20px;
 }
 
-button:hover {
-  transform: scale(1.05);
-}
-
 #quiz {
   display: none;
-  max-width: 700px;
+  max-width: 720px;
   margin: auto;
   padding: 20px;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,.85);
   border-radius: 15px;
   box-shadow: 0 0 25px gold;
 }
 
-.question {
-  margin: 20px 0;
-  text-align: left;
-}
-
-label {
-  display: block;
-  margin: 8px 0;
-  cursor: pointer;
-}
+.question { text-align:left; margin: 20px 0; }
+label { display:block; margin: 6px 0; cursor:pointer; }
 
 #result {
   font-size: 2.5rem;
   font-weight: bold;
   margin: 40px 0;
   display: none;
-  animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 10px gold; }
-  to { text-shadow: 0 0 30px gold; }
+  text-shadow: 0 0 20px gold;
 }
 
 canvas {
   position: fixed;
   top: 0;
   left: 0;
+  pointer-events: none;
+}
+
+/* INFO MODAL */
+#infoModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+#infoBox {
+  background: #111;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 520px;
+  box-shadow: 0 0 25px gold;
+  white-space: pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Harry Potter – Which House Dormitory Are You?</h1>
+
+<div id="hat">🎩</div>
+
+<div class="houses">
+  <div class="house gryff">
+    Gryffindor<br>
+    Brave • Bold • Heroic<br>
+    <button onclick="showInfo('gryff')">More Info</button>
+  </div>
+
+  <div class="house huff">
+    Hufflepuff<br>
+    Loyal • Kind • Hardworking<br>
+    <button onclick="showInfo('huff')">More Info</button>
+  </div>
+
+  <div class="house raven">
+    Ravenclaw<br>
+    Smart • Creative • Wise<br>
+    <button onclick="showInfo('raven')">More Info</button>
+  </div>
+
+  <div class="house slyth">
+    Slytherin<br>
+    Ambitious • Strategic • Powerful<br>
+    <button onclick="showInfo('slyth')">More Info</button>
+  </div>
+</div>
+
+<button onclick="startTest()">TAKE THE TEST HERE</button>
+
+<canvas id="confetti"></canvas>
+
+<div id="quiz">
+<h2>Answer Instinctively</h2>
+
+<div class="question"><p>5. You find a lost wallet with $800.</p>
+<label><input type="radio" name="q5" value="A"> Turn it in immediately</label>
+<label><input type="radio" name="q5" value="B"> Search owner directly</label>
+<label><input type="radio" name="q5" value="C"> Inspect first</label>
+<label><input type="radio" name="q5" value="D"> Consider keeping it</label></div>
+
+<div class="question"><p>6. Friend accused of cheating.</p>
+<label><input type="radio" name="q6" value="A"> Defend publicly</label>
+<label><input type="radio" name="q6" value="B"> Support quietly</label>
+<label><input type="radio" name="q6" value="C"> Follow evidence</label>
+<label><input type="radio" name="q6" value="D"> Protect yourself</label></div>
+
+<div class="question"><p>7. Offered questionable power.</p>
+<label><input type="radio" name="q7" value="A"> Refuse</label>
+<label><input type="radio" name="q7" value="B"> If it helps others</label>
+<label><input type="radio" name="q7" value="C"> Analyze deeply</label>
+<label><input type="radio" name="q7" value="D"> Take it</label></div>
+
+<div class="question"><p>8. Public failure hurts because…</p>
+<label><input type="radio" name="q8" value="A"> Reputation</label>
+<label><input type="radio" name="q8" value="B"> Letting others down</label>
+<label><input type="radio" name="q8" value="C"> Being wrong</label>
+<label><input type="radio" name="q8" value="D"> Losing advantage</label></div>
+
+<div class="question"><p>9. Dangerous problem appears.</p>
+<label><input type="radio" name="q9" value="A"> Act fast</label>
+<label><input type="radio" name="q9" value="B"> Organize allies</label>
+<label><input type="radio" name="q9" value="C"> Calculate everything</label>
+<label><input type="radio" name="q9" value="D"> Find leverage</label></div>
+
+<div class="question"><p>10. In group work, you become…</p>
+<label><input type="radio" name="q10" value="A"> The pusher</label>
+<label><input type="radio" name="q10" value="B"> The stabilizer</label>
+<label><input type="radio" name="q10" value="C"> The thinker</label>
+<label><input type="radio" name="q10" value="D"> The controller</label></div>
+
+<div class="question"><p>11. People describe you as…</p>
+<label><input type="radio" name="q11" value="A"> Fearless</label>
+<label><input type="radio" name="q11" value="B"> Dependable</label>
+<label><input type="radio" name="q11" value="C"> Brilliant</label>
+<label><input type="radio" name="q11" value="D"> Influential</label></div>
+
+<div class="question"><p>12. Alone in a castle, worst part?</p>
+<label><input type="radio" name="q12" value="A"> No allies</label>
+<label><input type="radio" name="q12" value="B"> No one to help</label>
+<label><input type="radio" name="q12" value="C"> No one to think with</label>
+<label><input type="radio" name="q12" value="D"> No one to rule</label></div>
+
+<div class="question"><p>13. You lose everything.</p>
+<label><input type="radio" name="q13" value="A"> Prove strength</label>
+<label><input type="radio" name="q13" value="B"> Find allies</label>
+<label><input type="radio" name="q13" value="C"> Learn faster</label>
+<label><input type="radio" name="q13" value="D"> Rebuild power</label></div>
+
+<div class="question"><p>14. One life guarantee?</p>
+<label><input type="radio" name="q14" value="A"> Honor</label>
+<label><input type="radio" name="q14" value="B"> Trust</label>
+<label><input type="radio" name="q14" value="C"> Understanding</label>
+<label><input type="radio" name="q14" value="D"> Control</label></div>
+
+<button onclick="submitTest()">REVEAL MY HOUSE</button>
+<div id="result"></div>
+</div>
+
+<div id="infoModal" onclick="closeInfo()">
+  <div id="infoBox"></div>
+</div>
+
+<script>
+const info = {
+gryff:`🦁 GRYFFINDOR
+Core Values: Bravery, courage, nerve, chivalry.
+Personality: Natural heroes and defenders.
+Strengths: Leadership, fearlessness.
+Weaknesses: Impulsiveness, pride.
+Dorm Vibe: Loud, competitive, celebratory.
+Famous: Harry, Hermione, Dumbledore.`,
+
+huff:`🦡 HUFFLEPUFF
+Core Values: Loyalty, fairness, patience.
+Personality: Warm supporters.
+Strengths: Trust, endurance.
+Weaknesses: Avoids conflict.
+Dorm Vibe: Cozy, safe, communal.
+Famous: Cedric, Newt.`,
+
+raven:`🦅 RAVENCLAW
+Core Values: Intelligence, creativity.
+Personality: Deep thinkers.
+Strengths: Innovation, logic.
+Weaknesses: Overthinking.
+Dorm Vibe: Quiet, academic.
+Famous: Luna, Cho.`,
+
+slyth:`🐍 SLYTHERIN
+Core Values: Ambition, power.
+Personality: Strategic leaders.
+Strengths: Survival, control.
+Weaknesses: Ruthlessness.
+Dorm Vibe: Quiet elite rivalry.
+Famous: Snape, Draco, Voldemort.`
+};
+
+function showInfo(h){infoBox.innerText=info[h];infoModal.style.display="flex";}
+function closeInfo(){infoModal.style.display="none";}
+
+const canvas=document.getElementById("confetti"),ctx=canvas.getContext("2d");
+canvas.width=innerWidth;canvas.height=innerHeight;
+let confetti=[];
+
+function startTest(){
+quiz.style.display="block";
+for(let i=0;i<150;i++)confetti.push({x:canvas.width/2,y:canvas.height/2,dx:Math.random()*6-3,dy:Math.random()*6-3,r:Math.random()*5+2});
+animate();
+}
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+confetti.forEach(p=>{p.x+=p.dx;p.y+=p.dy;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle="gold";ctx.fill();});
+if(confetti.length)requestAnimationFrame(animate);
+}
+
+function submitTest(){
+let s={A:0,B:0,C:0,D:0};
+for(let i=5;i<=14;i++){let q=document.querySelector(`input[name=q${i}]:checked`);if(!q){alert("Answer all questions.");return;}s[q.value]++;}
+let k=Object.keys(s).reduce((a,b)=>s[a]>s[b]?a:b);
+let h={A:"Gryffindor",B:"Hufflepuff",C:"Ravenclaw",D:"Slytherin"}[k];
+result.innerText=h;result.style.display="block";
+}
+</script>
+
+</body>
+</html>
   pointer-events: none;
 }
 </style>
