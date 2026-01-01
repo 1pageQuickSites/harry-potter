@@ -183,11 +183,42 @@ canvas {
     display: none;
   }
 }
+  /* -- MEDIA QUERIES -- */
+
+/* TABLET (>= 768px) */
+@media (min-width: 768px) {
+  .house-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .house-box {
+    flex: 0 0 48%;
+  }
+
+  .quiz-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* DESKTOP (>= 1024px) */
+@media (min-width: 1024px) {
+  body {
+    padding: 2rem 4rem;
+  }
+  .house-box {
+    flex: 0 0 23%;
+  }
+  .quiz-options {
+    justify-content: space-evenly;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </style>
 </head>
 
-<body>
-<div  class="contain panel">
+<body class="panel">
+<div  class="contain ">
 <h1>Harry Potter – Which House Dormitory Are You?</h1>
  <div class="floating-container">
         <img 
