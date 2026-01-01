@@ -160,11 +160,16 @@ canvas {
   box-shadow: 0 0 25px gold;
   white-space: pre-line;
 }
+  .contain{
+    position:reletive;
+    display: inline-block;
+  }
+  
 </style>
 </head>
 
 <body>
-
+<div class="contain">
 <h1>Harry Potter – Which House Dormitory Are You?</h1>
  <div class="floating-container">
         <img 
@@ -193,7 +198,7 @@ canvas {
     <button onclick="showInfo('slyth')">About This House</button>
   </div>
 </div>
-
+</div>
 <button onclick="startTest()">TAKE THE TEST HERE</button>
 
 <canvas id="confetti"></canvas>
