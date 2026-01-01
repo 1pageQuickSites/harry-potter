@@ -6,6 +6,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+  body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(circle at center, #0a0a0a, #000000);
+        overflow: hidden;
+    }
+
+    .floating-container {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-image {
+        width: 280px; /* adjust as needed */
+        height: auto;
+        filter:
+            drop-shadow(0 0 12px rgba(0, 255, 255, 0.6))
+            drop-shadow(0 0 30px rgba(0, 200, 255, 0.4));
+        transition: 
+            transform 0.4s ease,
+            filter 0.4s ease;
+    }
+
+    .floating-image:hover {
+        transform: scale(1.05);
+        filter:
+            drop-shadow(0 0 20px rgba(0, 255, 255, 0.9))
+            drop-shadow(0 0 50px rgba(0, 200, 255, 0.7));
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-18px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -122,8 +165,13 @@ canvas {
 <body>
 
 <h1>Harry Potter – Which House Dormitory Are You?</h1>
-<div id="hat">🎩</div>
-
+ <div class="floating-container">
+        <img 
+            src="file_00000000eb54722fac57f0081e57bfc3.png" 
+            alt="Floating Glowing Image"
+            class="floating-image"
+        />
+    </div>
 <div class="houses">
   <div class="house gryff">
     Gryffindor<br>Brave • Bold • Heroic<br>
