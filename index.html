@@ -6,103 +6,167 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+
 <style>
-/* GLOBAL RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* SCROLL SETTINGS */
-html, body {
-  height: 100%;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  font-family: Georgia, serif;
-  background: #08070f;
-  color: #eee;
-}
-
-/* HIDE SCROLLBAR ON MOBILE */
-@media (max-width: 768px) {
   body {
-    scrollbar-width: none;     /* Firefox */
-    -ms-overflow-style: none;   /* IE/Edge */
-  }
-  body::-webkit-scrollbar {
-    display: none;              /* Chrome/Safari */
-  }
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(circle at center, #0a0a0a, #000000);
+        overflow: hidden;
+    }
+
+    .floating-container {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-image {
+        width: 25%; /* adjust as needed */
+      max-width: 75px;
+        height: auto;
+        filter:
+            drop-shadow(0 0 12px rgba(0, 255, 255, 0.6))
+            drop-shadow(0 0 30px rgba(0, 200, 255, 0.4));
+        transition: 
+            transform 0.4s ease,
+            filter 0.4s ease;
+    }
+
+    .floating-image:hover {
+        transform: scale(1.05);
+        filter:
+            drop-shadow(0 0 20px rgba(0, 255, 255, 0.9))
+            drop-shadow(0 0 50px rgba(0, 200, 255, 0.7));
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-18px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #111, #000);
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
 }
 
-/* SECTION STYLES */
-section {
-  min-height: 100vh;
-  padding: clamp(1rem, 4vw, 3rem);
+#hat {
+  font-size: 140px;
+  animation: float 2.5s ease-in-out infinite, glow 1.5s alternate infinite;
+  margin-top: 20px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px gold; }
+  to { text-shadow: 0 0 30px gold; }
+}
+
+.houses {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.house {
+  padding: 15px 25px;
+  border-radius: 15px;
+  font-weight: bold;
+  box-shadow: 0 0 15px #000;
+  width: 240px;
+}
+
+.gryff { background:#7f0909; }
+.huff { background:#bfa000; color:black; }
+.raven { background:#0e1a40; }
+.slyth { background:#1a472a; }
+
+.house button {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: gold;
+  color: black;
+  margin: 20px;
+}
+
+#quiz {
+  display: none;
+  max-width: 720px;
+  margin: auto;
+  padding: 20px;
+  background: rgba(0,0,0,.85);
+  border-radius: 15px;
+  box-shadow: 0 0 25px gold;
+}
+
+.question { text-align:left; margin: 20px 0; }
+label { display:block; margin: 6px 0; cursor:pointer; }
+
+#result {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 40px 0;
+  display: none;
+  text-shadow: 0 0 20px gold;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+#infoModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
   align-items: center;
   justify-content: center;
+  z-index: 999;
 }
 
-/* HEADINGS */
-h1, h2 {
-  font-weight: bold;
-  text-align: center;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+#infoBox {
+  background: #111;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 550px;
+  box-shadow: 0 0 25px gold;
+  white-space: pre-line;
 }
-
-h1 {
-  font-size: clamp(2rem, 8vw, 4rem);
-  margin-bottom: 0.5rem;
-}
-
-/* SCROLL REVEAL ELEMENT */
-.reveal {
-  opacity: 0;
-  transform: translateY(60px) scale(0.95);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* GRID LAYOUT FOR DESKTOP */
-@media (min-width: 900px) {
-  .house-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+  .contain{
+    position:reletive;
+    display: inline-block;
   }
-}
-
-/* HOUSE CARD STYLES */
-.house-card {
-  background: rgba(255,255,255,0.05);
-  padding: 1.5rem;
-  border-radius: 12px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-}
-
-/* BUTTON */
-.button {
-  margin-top: 1.5rem;
-  padding: 0.75rem 2rem;
-  background: #a87b2d;
-  color: #fff;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.button:hover {
-  background: #c59d5f;
-}
-
+  
 /* OVERFLOW SCROLL PANEL */
 .panel {
   max-height: 60vh;
@@ -123,7 +187,7 @@ h1 {
 </head>
 
 <body>
-<div class="contain">
+<div  class="contain panel">
 <h1>Harry Potter – Which House Dormitory Are You?</h1>
  <div class="floating-container">
         <img 
