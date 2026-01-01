@@ -42,22 +42,6 @@
         filter:
             drop-shadow(0 0 20px rgba(0, 255, 255, 0.9))
             drop-shadow(0 0 50px rgba(0, 200, 255, 0.7));
-#hat {
-  font-size: 140px;
-  animation: float 2.5s ease-in-out infinite, glow 1.5s alternate infinite;
-  margin-top: 20px;
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 10px gold; }
-  to { text-shadow: 0 0 30px gold; }
-}
 
 .house-container {
   padding: 15px 25px;
@@ -66,6 +50,8 @@
   box-shadow: 0 0 15px #000;
   width: 75%;
   max-width:375px;
+  justify-content: center;
+  display: flex;
 }
 
 .house {
@@ -109,7 +95,7 @@ button {
 }
 
 .question { text-align:left; margin: 20px 0; }
-label { display:block; margin: 6px 0; cursor:pointer; }
+.label { display:block; margin: 6px 0; cursor:pointer; }
 
 #result {
   font-size: 2.5rem;
@@ -119,7 +105,7 @@ label { display:block; margin: 6px 0; cursor:pointer; }
   text-shadow: 0 0 20px gold;
 }
 
-canvas {
+.canvas {
   position: fixed;
   top: 0;
   left: 0;
@@ -168,7 +154,7 @@ canvas {
     justify-content: space-between;
     height:100%;
   }
-  .house-box {
+  .house {
     flex: 0 0 75%;
   }
 
@@ -188,7 +174,7 @@ canvas {
   }
   .contain{height:100%;
           }
-  .house-box {
+  .house {
     flex: 0 0 75%;
   }
   .quiz-options {
