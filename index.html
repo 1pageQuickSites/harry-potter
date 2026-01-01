@@ -59,7 +59,7 @@
   width: 95%;
   max-width:500px;
   justify-content: center;
-  display: flex-box;
+  display: flex;
   margin:0px auto 0px auto;
 }
 
@@ -82,14 +82,14 @@
 .slyth { background:#1a472a; }
 
 .house button {
-  width:100%;
+  width:95%;
   margin-top: 10px;
   font-size: 0.9rem;
   border-radius: 10px;
 }
 
 button {
-  width:100%;
+  width:95%;
   max-width:325;
   padding: 12px 25px;
   font-size: 1rem;
@@ -164,7 +164,10 @@ canvas {
   }
 .panel{ overflow-y: auto;}
   /* -- MEDIA QUERIES -- */
-
+@media (max-width: 768px){
+position:reletive;
+display:inline-box;
+}
 /* TABLET (>= 768px) */
 @media (min-width: 768px) {
   .house-container {
