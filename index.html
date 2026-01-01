@@ -47,6 +47,7 @@
             drop-shadow(0 0 50px rgba(0, 200, 255, 0.7));
 
 .house-container {
+  position:reletive;
   padding: 15px 25px;
   border-radius: 15px;
   font-weight: bold;
@@ -54,7 +55,7 @@
   width: 75%;
   max-width:375px;
   justify-content: center;
-  display: flex;
+  display: flex-block;
   margin:0px auto 0px auto;
 }
 
@@ -140,6 +141,7 @@ button {
   white-space: pre-line;
 }
   .contain{
+    
     margin:0px auto 0px auto;
     padding:5px;
     position:reletive;
@@ -159,6 +161,7 @@ button {
 /* TABLET (>= 768px) */
 @media (min-width: 768px) {
   .house-container {
+    display:flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -178,6 +181,7 @@ button {
   body {
     padding: 2rem 4rem;
     height:auto;
+    display:flex;
   }
   .house-container{
     height:auto;
