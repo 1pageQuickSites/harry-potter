@@ -65,8 +65,7 @@ h2{color:white;
 
 .house-container {
   position:reletive;
-  width:95%;
-  height:15%;
+  width:100%;
   padding: 15px 25px;
   border-radius: 50px;
   font-weight: bold;
@@ -79,7 +78,6 @@ h2{color:white;
   
  .slyth.raven.huff.gryff.house {
   position:reletive;
-  width:350;
   max-width:95%;
   max-height:425px;
   display: flex;
@@ -104,7 +102,6 @@ h2{color:white;
   font-size: 0.9rem;
   border-radius: 50px;
 }
-
 .button {
   width:95%;
   max-width:325;
@@ -121,11 +118,11 @@ h2{color:white;
 .enter{
   justify-content: center;
   width:95%;
-       height:35px;
-       color:bluegrey;
-       border-radius:20px;
+  height:35px;
+  color:bluegrey;
+  border-radius:20px;
   margin:25px 2.5%;
-      }
+}
 #quiz {
   display: none;
   max-width: 720px;
@@ -187,7 +184,7 @@ canvas {
 .panel{ overflow-y: auto;}
   /* -- MEDIA QUERIES -- */
 /* TABLET (>= 768px) */
-@media (max-width: 550px) {
+@media (min-width:450px) (max-width: 550px) {
   .house-container {
     display:flex;
     flex-direction: row;
