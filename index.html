@@ -74,14 +74,15 @@ h2{color:white;
   display: block;
   margin: 15px 25px 5px 25px;
 }
- p{text-align:center;}
+ p{text-align:center;
+  }
   
  .slyth.raven.huff.gryff.house {
   position:reletive;
   width:350;
   max-width:95%;
   max-height:425px;
-  display: inline-flex;
+  display: flex;
   gap: 20px;
   flex-wrap: wrap;
   border-style:solid;
@@ -90,11 +91,11 @@ h2{color:white;
 }
 
 .gryff { background-color:#7f0909; 
-       height:100%;position:reletive;}
+       height:100%;position:reletive;border-radius: 50px;}
 .huff { background-color:#bfa000; color:black;
-      height:100%;position:reletive;}
-.raven { background-color:#0e1a40;height:100%;position:reletive;}
-.slyth { background-color:#1a472a; height:100%;position:reletive;}
+      height:100%;position:reletive; border-radius: 50px;}
+.raven { background-color:#0e1a40;height:100%;position:reletive;border-radius: 50px;}
+.slyth { background-color:#1a472a; height:100%;position:reletive;border-radius: 50px;}
 
 .house button {
   position:reletive;
@@ -115,7 +116,7 @@ h2{color:white;
   cursor: pointer;
   background: gold;
   color: black;
-  margin:15px auto 15px auto;
+  margin:25px auto 15px auto;
 }
 .enter{
   justify-content: center;
@@ -123,7 +124,7 @@ h2{color:white;
        height:35px;
        color:lighblue;
        border-radius:50px;
-  margin:5px 2.5%;
+  margin:25px 2.5%;
       }
 #quiz {
   display: none;
@@ -186,13 +187,13 @@ canvas {
   }
 .panel{ overflow-y: auto;}
   /* -- MEDIA QUERIES -- */
-@media (max-width: 768px){
+@media (max-width: 568px){
   
 position:reletive;
 display:block;
 }
 /* TABLET (>= 768px) */
-@media (min-width: 768px) {
+@media (min-width: 568px) {
   .house-container {
     display:flex;
     flex-direction: row;
@@ -211,9 +212,9 @@ display:block;
 }
 
 /* DESKTOP (>= 1024px) */
-@media (min-width: 1024px) {
+@media (min-width: 924px) {
   body {
-    padding: 2rem 4rem;
+    padding: 2rem 4rem;justify-content: center;
     height:auto;
     display:flex;
   }
