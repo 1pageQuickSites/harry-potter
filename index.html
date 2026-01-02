@@ -14,14 +14,15 @@
         width:100%;
         margin: 0;
         height: 100%;
-        display: flex;
+        display: block;
         justify-content: center;
         align-items: center;
         background: radial-gradient(circle at center, #0a0a0a, #000000);
         overflow: hidden;
     }
 h2{color:white;
-   align-items: center;
+   text-align: center;
+   margin:15px;
   }
     .floating-container {
       display:flex;
@@ -70,23 +71,22 @@ h2{color:white;
   border-radius: 25%;
   font-weight: bold;
   box-shadow: 0 0 15px #00;
-  justify-content: center;
-  display: flex;
-  margin:0px auto 0px;
+  display: block;
+  margin:5px 15px 5px 15px;
 }
  p{text-align:center;}
+  
  .slyth.raven.huff.gryff.house {
   position:reletive;
   width:350;
   max-width:95%;
   max-height:250px;
-  display: inline;
+  display: inline-flex;
   gap: 20px;
   flex-wrap: wrap;
-  margin: 20px;
   border-style:solid;
   border-color:grey;
-  border-radius: 25px;
+  border-radius: 25%;
 }
 
 .gryff { background-color:#7f0909; 
@@ -101,26 +101,25 @@ h2{color:white;
   width:95%;
   margin: 10px;
   font-size: 0.9rem;
-  border-radius: 100%;
+  border-radius: 25%;
 }
 
 .button {
   width:95%;
   max-width:325;
-  height:35px;
+  height:45px;
   padding: 12px 25px;
   font-size: 1rem;
   font-weight: bold;
-  border: none;
-  border-radius: 100%;
+  border-radius: 20%;
   cursor: pointer;
   background: gold;
   color: black;
-  margin:15px auto 0px auto;
+  margin:15px auto 15px auto;
 }
 .enter{ width:100%;
        height:35px;
-       color:skyblue;
+       color:lighblue;
        border-radius:15%;
       }
 #quiz {
@@ -171,9 +170,9 @@ canvas {
 }
   .contain{
     margin:0px auto 0px auto;
-    padding:5px;
+    padding:10px;
     position:reletive;
-    display: block;
+    display: flex;
     width:100%;
     height:100%;
   }
