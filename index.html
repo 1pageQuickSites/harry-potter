@@ -187,11 +187,10 @@ canvas {
 .panel{ overflow-y: auto;}
   /* -- MEDIA QUERIES -- */
 @media (max-width: 268px){
-  .house{
-  width:100%;}
+
 }
 /* TABLET (>= 768px) */
-@media (max-width: 2550px) {
+@media (max-width: 550px) {
   .house-container {
     display:flex;
     flex-direction: row;
@@ -199,6 +198,7 @@ canvas {
   }
    button.enter{
     position:reletive;
+    display:bottom;
   }
   .house {
     flex: 0 0 75%;
@@ -211,17 +211,14 @@ canvas {
 }
 
 /* DESKTOP (>= 1024px) */
-@media (min-width: 924px) {
+@media (min-width: 2024px) {
   body {
     padding: 2rem 4rem;
-    height:auto;
-    display:block;
+    display:inline-flex;
   }
   .house-container{
     height:auto;
   }
-  .contain{height:100%;
-          }
   .house {
     flex: 0 0 75%;
     width:100%;
