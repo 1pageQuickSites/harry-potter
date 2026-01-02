@@ -91,11 +91,11 @@ h2{color:white;
 }
 
 .gryff { background-color:#7f0909; 
-       height:100%;position:reletive;border-radius: 50px;}
+       height:100%;position:reletive;border-radius: 20px;}
 .huff { background-color:#bfa000; color:black;
-      height:100%;position:reletive; border-radius: 50px;}
-.raven { background-color:#0e1a40;height:100%;position:reletive;border-radius: 50px;}
-.slyth { background-color:#1a472a; height:100%;position:reletive;border-radius: 50px;}
+      height:100%;position:reletive; border-radius: 20px;}
+.raven { background-color:#0e1a40;height:100%;position:reletive;border-radius: 20px;}
+.slyth { background-color:#1a472a; height:100%;position:reletive;border-radius: 20px;}
 
 .house button {
   position:reletive;
@@ -122,8 +122,8 @@ h2{color:white;
   justify-content: center;
   width:95%;
        height:35px;
-       color:lighblue;
-       border-radius:50px;
+       color:bluegrey;
+       border-radius:20px;
   margin:25px 2.5%;
       }
 #quiz {
@@ -131,7 +131,7 @@ h2{color:white;
   max-width: 720px;
   margin: auto;
   padding: 20px;
-  background: rgba(0,0,0,.85);
+  background: bluegrey;
   border-radius: 15px;
   box-shadow: 0 0 25px gold;
 }
@@ -157,7 +157,7 @@ canvas {
 #infoModal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.85);
+  background:bluegrey;
   display: none;
   align-items: center;
   justify-content: center;
@@ -165,7 +165,7 @@ canvas {
 }
 
 #infoBox {
-  background: #111;
+  background: bluegrey;
   padding: 25px;
   border-radius: 15px;
   max-width: 550px;
@@ -180,7 +180,6 @@ canvas {
     width:90%;
     height:100%;
   }
-  
 /* OVERFLOW SCROLL PANEL */
   .panel::-webkit-scrollbar {
     overflow-y: auto;
@@ -188,7 +187,6 @@ canvas {
 .panel{ overflow-y: auto;}
   /* -- MEDIA QUERIES -- */
 @media (max-width: 568px){
-  
 position:reletive;
 display:block;
 }
@@ -198,9 +196,6 @@ display:block;
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    height:100%;
-    margin:0px auto 0px auto;
   }
   .house {
     flex: 0 0 75%;
@@ -214,7 +209,8 @@ display:block;
 /* DESKTOP (>= 1024px) */
 @media (min-width: 924px) {
   body {
-    padding: 2rem 4rem;justify-content: center;
+    padding: 2rem 4rem;
+    justify-content: center;
     height:auto;
     display:flex;
   }
@@ -227,7 +223,6 @@ display:block;
     flex: 0 0 75%;
   }
   .quiz-options {
-    justify-content: space-evenly;
     grid-template-columns: repeat(3, 1fr);
   }
 }
