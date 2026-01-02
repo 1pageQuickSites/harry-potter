@@ -8,15 +8,15 @@
 <style>
   .divide{
   position:reletive;
-  display:block;
+  display:inline;
   }
   body {
+        position:reletive;
         width:100%;
         margin: 0;
         height: 100%;
         display: block;
         justify-content: center;
-        align-items: center;
         background: radial-gradient(circle at center, #0a0a0a, #000000);
         overflow: hidden;
     }
@@ -44,7 +44,6 @@ h2{color:white;
         transition: 
             transform 0.4s ease,
             filter 0.4s ease;
-      
     }
 
     @keyframes float {
@@ -65,10 +64,11 @@ h2{color:white;
             drop-shadow(0 0 50px rgba(0, 200, 255, 0.7));
 
 .house-container {
+  position:reletive;
   width:100%;
-  height:15%
+  height:15%;
   padding: 15px 25px;
-  border-radius: 25%;
+  border-radius: 25px;
   font-weight: bold;
   box-shadow: 0 0 15px #00;
   display: block;
@@ -86,7 +86,7 @@ h2{color:white;
   flex-wrap: wrap;
   border-style:solid;
   border-color:grey;
-  border-radius: 25%;
+  border-radius: 25px;
 }
 
 .gryff { background-color:#7f0909; 
@@ -101,7 +101,7 @@ h2{color:white;
   width:95%;
   margin: 10px;
   font-size: 0.9rem;
-  border-radius: 25%;
+  border-radius: 25px;
 }
 
 .button {
@@ -111,16 +111,19 @@ h2{color:white;
   padding: 12px 25px;
   font-size: 1rem;
   font-weight: bold;
-  border-radius: 20%;
+  border-radius: 25px;
   cursor: pointer;
   background: gold;
   color: black;
   margin:15px auto 15px auto;
 }
-.enter{ width:100%;
+.enter{
+  justify-content: center;
+  width:95%;
        height:35px;
        color:lighblue;
-       border-radius:15%;
+       border-radius:25px;
+  margin:5px 2.5%;
       }
 #quiz {
   display: none;
@@ -185,6 +188,7 @@ canvas {
 .panel{ overflow-y: auto;}
   /* -- MEDIA QUERIES -- */
 @media (max-width: 768px){
+  
 position:reletive;
 display:block;
 }
@@ -229,9 +233,8 @@ display:block;
 }
 </style>
 </head>
-
 <body class="panel">
-<div  class="contain ">
+<div  class="contain">
  <div class="floating-container">
         <img 
             src="file_00000000eb54722fac57f0081e57bfc3.png" 
@@ -245,7 +248,6 @@ display:block;
     Gryffindor<br>Brave • Bold • Heroic<br></p>
     <button onclick="showInfo('gryff')">About This House</button>
   </div>
-
   <div class="house huff"><p>
     Hufflepuff<br>Loyal • Kind • Hardworking<br></p>
     <button onclick="showInfo('huff')">About This House</button>
@@ -262,8 +264,9 @@ display:block;
     <button onclick="showInfo('slyth')">About This House</button>
   </div>
   </div>
-<button class="enter" onclick="startTest()">TAKE THE TEST HERE</button>
 </div>
+<button class="enter" onclick="startTest()">TAKE THE TEST HERE</button>
+
 <canvas id="confetti"></canvas>
 
 <div id="quiz">
