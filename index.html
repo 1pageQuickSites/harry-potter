@@ -24,6 +24,9 @@ h2{color:white;
    text-align: center;
    margin:20px;
   }
+   .floating-container {
+        animation: float 6s ease-in-out infinite;
+    }
     .floating-container {
       display:flex;
       height:25%;
@@ -153,18 +156,19 @@ h2{color:white;
   border-radius:20px;
   margin:25px 2.5%;
 }
+
 #quiz {
   display: none;
   max-width: 720px;
   margin: auto;
   padding: 20px;
-  background: bluegray;
+  background: rgba(0,0,0,.85);
   border-radius: 15px;
   box-shadow: 0 0 25px gold;
 }
 
 .question { text-align:left; margin: 20px 0; }
-.label { display:block; margin: 6px 0; cursor:pointer; }
+label { display:block; margin: 6px 0; cursor:pointer; }
 
 #result {
   font-size: 2.5rem;
@@ -184,7 +188,7 @@ canvas {
 #infoModal {
   position: fixed;
   inset: 0;
-  background:bluegray;
+  background: rgba(0,0,0,.85);
   display: none;
   align-items: center;
   justify-content: center;
@@ -192,7 +196,7 @@ canvas {
 }
 
 #infoBox {
-  background: bluegray;
+  background: #111;
   padding: 25px;
   border-radius: 15px;
   max-width: 550px;
